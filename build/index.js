@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const server_1 = require("@apollo/server");
 const express4_1 = require("@apollo/server/express4");
+const db_1 = __importDefault(require("./lib/db"));
 const PORT = 8001;
 const init = () => __awaiter(void 0, void 0, void 0, function* () {
     const app = (0, express_1.default)();
@@ -27,13 +28,24 @@ const init = () => __awaiter(void 0, void 0, void 0, function* () {
 
         type Query{
             getData:[userdata]
-            say(name:String):String
+            userCreation(firstname:String,lastname:String,email:String,profileImageUrl:String):Boolean
         }
         `,
         resolvers: {
             Query: {
                 getData: () => [{ name: "khuma pokharel", houseno: 4001 }],
-                say: (_, { name }) => name
+                userCreation: (_1, _a) => __awaiter(void 0, [_1, _a], void 0, function* (_, { firstname, lastname, email, profileImageUrl }) {
+                    yield db_1.default.user.create({
+                        data: {
+                            firstName: "firstname",
+                            lastName: "lastname",
+                            email: "email",
+                            profileImageUrl: "profileImageUrl",
+                        }
+                    });
+                    console.log("User create in a database");
+                    return true;
+                })
             }
         }
     });
