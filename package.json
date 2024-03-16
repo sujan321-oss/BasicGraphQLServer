@@ -2,15 +2,16 @@
   "name": "ThreadsBackendApp",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "https://github.com/sujan321-oss/BasicGraphQLServer.git",
+  "author": "sujan321-oss <khumapokharel2076@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ./build/index.js",
-    "dev": "tsc-watch --onSuccess \"npm start\" "
+    "start": "node build/index.js",
+    "dev": "tsc-watch --onSuccess \"npm start\""
   },
   "dependencies": {
-    "@apollo/server": "^4.10.1",
     "express": "^4.18.3",
-    "graphql": "^16.8.1",
+    "prisma": "^5.11.0",
     "tsc-watch": "^6.0.4",
     "typescript": "^5.4.2"
   }
