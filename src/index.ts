@@ -17,12 +17,16 @@ const init=async ()=>{
 
         type Query{
             getData:[userdata]
+            say(name:String):String
         }
         `,
         
         resolvers:{
             Query:{
-                getData: ()=>[{name:"khuma pokharel",houseno:4001}]
+                getData: ()=>[{name:"khuma pokharel",houseno:4001}],
+                say:(_,{name}:{name:String})=>name
+                
+                
             }
         }
     })

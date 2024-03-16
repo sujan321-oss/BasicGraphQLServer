@@ -27,11 +27,13 @@ const init = () => __awaiter(void 0, void 0, void 0, function* () {
 
         type Query{
             getData:[userdata]
+            say(name:String):String
         }
         `,
         resolvers: {
             Query: {
-                getData: () => [{ name: "khuma pokharel", houseno: 4001 }]
+                getData: () => [{ name: "khuma pokharel", houseno: 4001 }],
+                say: (_, { name }) => name
             }
         }
     });
