@@ -2,7 +2,7 @@
 import express from 'express'
 import { ApolloServer } from '@apollo/server'
 import { expressMiddleware } from '@apollo/server/express4';
-import Prisma from "./lib/db"
+
 import prisma from './lib/db';
 
 const PORT=8001
@@ -36,7 +36,7 @@ const init=async ()=>{
                               lastName:"lastname",
                               email:"email",
                               profileImageUrl:"profileImageUrl",
-
+                    
                             }
                         })
                         console.log("User create in a database")
